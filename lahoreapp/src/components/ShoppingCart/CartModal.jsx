@@ -3,6 +3,7 @@ import PaymentModal from "./PaymentModal";
 import productService from "../../services/ProductsService";
 import { withRouter } from "react-router-dom";
 import CartProduct from "./CartProduct";
+import userService from "../../services/UserService";
 
 const CartModal = props => {
   //const localData = localStorage.getItem("product");
@@ -51,24 +52,31 @@ const CartModal = props => {
   }, []);*/
   return (
     <>
-      <div id="cart" className="btn-group">
-        <div className="wrapper">
-          <i className="fa fa-shopping-cart"></i>
-          <span>0</span>
-        </div>
-        <button
-          type="button"
-          className="btn my-2"
-          data-toggle="modal"
-          data-target="#mymodal"
-          title="View your cart"
-          onClick={() => {
-            console.log("in modal prod");
-          }}
-        >
-          VIEW CART
-        </button>
-      </div>
+      {" "}
+      {userService.isLoggedIn() ? (
+        <>
+          <div id="cart" className="btn-group">
+            <div className="wrapper">
+              <i className="fa fa-shopping-cart"></i>
+              <span>0</span>
+            </div>
+            <button
+              type="button"
+              className="btn my-2"
+              data-toggle="modal"
+              data-target="#mymodal"
+              title="View your cart"
+              onClick={() => {
+                console.log("in modal prod");
+              }}
+            >
+              VIEW CART
+            </button>
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
       <div className="modal fade" id="mymodal">
         <div className="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable ">
           <div className="modal-content shopping-cart">
