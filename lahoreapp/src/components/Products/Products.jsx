@@ -1,7 +1,7 @@
 import React from "react";
 import SingleProduct from "./SingleProduct";
 import { makeStyles } from "@material-ui/core/styles";
-import { Fab } from "@material-ui/core";
+import { Fab, Grid } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
+
 const Products = props => {
   const [products, setProducts] = React.useState([]);
   const classes = useStyles();
@@ -50,20 +51,28 @@ const Products = props => {
   };
   return (
     <div>
-      <select
-        className="btn"
-        value={perPage}
-        onChange={e => {
-          setPerPage(e.target.value);
-        }}
-      >
-        <option value="12">Default</option>
-        <option value="4">Four</option>
-        <option value="8">Eight</option>
-        <option value="12">Twelve</option>
-        <option value="16">Sixteen</option>
-        <option value="20">Twenty</option>
-      </select>
+      <Grid container spacing={3}>
+        <Grid item xs={9}></Grid>
+        <Grid item xs={3}>
+          <div id="select">
+            <span>Items per page:</span>{" "}
+            <select
+              className="btn"
+              value={perPage}
+              onChange={e => {
+                setPerPage(e.target.value);
+              }}
+            >
+              <option value="12">Default</option>
+              <option value="4">Four</option>
+              <option value="8">Eight</option>
+              <option value="12">Twelve</option>
+              <option value="16">Sixteen</option>
+              <option value="20">Twenty</option>
+            </select>{" "}
+          </div>
+        </Grid>
+      </Grid>
       {products.length == 0 ? (
         <div className="container">
           <p>
@@ -106,14 +115,20 @@ const Products = props => {
           </main>
         </div>
       )}
-      <Pagination
-        count={Math.ceil(total / perPage)}
-        variant="outlined"
-        color="primary"
-        onChange={(e, value) => {
-          props.history.push("/souvenirshop/" + value);
-        }}
-      />
+      <Grid container spacing={3}>
+        <Grid item xs={9}></Grid>
+        <Grid item xs={3}>
+          <Pagination
+            count={Math.ceil(total / perPage)}
+            variant="outlined"
+            size="medium"
+            onChange={(e, value) => {
+              console.log(props);
+              props.history.push("/souvenirshop/" + value);
+            }}
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 };

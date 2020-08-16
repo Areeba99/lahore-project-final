@@ -1,9 +1,9 @@
 import React from "react";
 const CurrencyDropdown = props => {
   return (
-    <div class="btn-group">
+    <div className="btn-group">
       <button
-        class="btn dropdown-toggle my-2"
+        className="btn dropdown-toggle my-2"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
@@ -13,11 +13,11 @@ const CurrencyDropdown = props => {
         CURRENCY
       </button>
 
-      <div class="dropdown-menu dropdown-menu-right">
-        <a href="#" class="dropdown-item">
+      <div className="dropdown-menu dropdown-menu-right">
+        <a href="#" className="dropdown-item">
           PKR
         </a>
-        <a href="#" class="dropdown-item active">
+        <a href="#" className="dropdown-item active">
           USD
         </a>
       </div>

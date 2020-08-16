@@ -24,6 +24,7 @@ import Register from "./components/auth/Register";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CartModal from "./components/ShoppingCart/CartModal";
+import ContactPage from "./components/ContactPage";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
       <TopMenu />
       <Router>
         <Switch>
-          <Route path="/contactus" component={LandingPage} />
+          <Route path="/contactus" component={ContactPage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -52,7 +53,7 @@ function App() {
       </Router>
       <div id="gototop">
         <a href="#n1" data-toggle="tooltip" title="Go to Top">
-          <i class="fa fa-chevron-circle-up"></i>
+          <i className="fa fa-chevron-circle-up"></i>
         </a>
       </div>
       <Footer />

@@ -17,14 +17,14 @@ const Shopheader = props => {
 
   return (
     <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h2 class="my-md-2 site-title">SOUVENIR SHOP</h2>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 text-center">
+            <h2 className="my-md-2 site-title">SOUVENIR SHOP</h2>
             {!userService.isLoggedIn() ? (
               <>
                 <button
-                  class="btn my-2"
+                  className="btn my-2"
                   data-toggle="tooltip"
                   title="Create an Account"
                   onClick={handleLoginClick}
@@ -32,7 +32,7 @@ const Shopheader = props => {
                   Login
                 </button>
                 <button
-                  class="btn my-2"
+                  className="btn my-2"
                   data-toggle="tooltip"
                   title="Login"
                   onClick={handleRegisterClick}
@@ -42,7 +42,7 @@ const Shopheader = props => {
               </>
             ) : (
               <button
-                class="btn my-2"
+                className="btn my-2"
                 data-toggle="tooltip"
                 title="Logout"
                 onClick={e => {
@@ -54,9 +54,7 @@ const Shopheader = props => {
               </button>
             )}
           </div>
-          <div id="btn" class="col-12">
-            <CurrencyDropdown />
-            <FilterDropdown />
+          <div id="btn" className="col-12">
             <CartModal />
           </div>
         </div>

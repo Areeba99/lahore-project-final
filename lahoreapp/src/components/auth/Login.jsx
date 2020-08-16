@@ -1,18 +1,28 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Grid } from "@material-ui/core";
 import userService from "../../services/UserService";
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    //perfect centering
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "300px"
+  buttonStyle: {
+    backgroundColor: "rgb(75, 8, 82)",
+    color: "rgb(255, 255, 255)",
+    "&:hover": {
+      backgroundColor: "rgba(75, 8, 82,0.8)",
+      color: "rgba(120, 255, 58, 1)"
+    },
+    "&:focus": {
+      color: "rgba(120, 255, 58, 1)"
+    }
   },
-  child: {
-    width: "60%"
+  headingStyle: {
+    fontFamily: "Patrick Hand, cursive",
+    textAlign: "center",
+    marginTop: "3%"
+    //backgroundColor: "rgba(120, 255, 58, 1)"
+  },
+  errorStyle: {
+    color: "red"
   }
 }));
 const Login = props => {
@@ -20,8 +30,12 @@ const Login = props => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   return (
-    <div className={classes.container}>
-      <div className={classes.child}>
+    <Grid container spacing={3}>
+      <Grid item xs={12}>
+        <h1 className={classes.headingStyle}>Login Page</h1>
+      </Grid>
+      <Grid item xs={3}></Grid>
+      <Grid item xs={6}>
         <TextField
           label="email"
           fullWidth
@@ -29,8 +43,7 @@ const Login = props => {
           onChange={e => {
             setEmail(e.target.value);
           }}
-        />{" "}
-        <br />
+        />
         <TextField
           label="password"
           type="password"
@@ -39,9 +52,13 @@ const Login = props => {
           onChange={e => {
             setPassword(e.target.value);
           }}
-        />{" "}
-        <br />
+        />
+      </Grid>
+      <Grid item xs={3}></Grid>
+      <Grid item xs={3}></Grid>
+      <Grid item xs={9}>
         <Button
+          className={classes.buttonStyle}
           variant="contained"
           color="primary"
           onClick={e => {
@@ -49,17 +66,21 @@ const Login = props => {
               .login(email, password)
               .then(data => {
                 console.log(data);
+                document.getElementById("log").innerHTML = "";
                 window.location.href = "/souvenirshop";
               })
               .catch(err => {
                 console.log(err);
+                document.getElementById("log").innerHTML =
+                  "An error occurred, recheck your credentials!";
               });
           }}
         >
           Login
         </Button>
-      </div>
-    </div>
+        <div id="log" className={classes.errorStyle}></div>
+      </Grid>
+    </Grid>
   );
 };
 

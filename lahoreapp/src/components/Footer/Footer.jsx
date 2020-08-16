@@ -10,15 +10,11 @@ const Footer = () => {
             <h5>Find more about Lahore</h5>
             <p>
               Want to contact or support us? <br />
-              <a
-                href="/html/index.html"
-                data-toggle="tooltip"
-                title="Home page"
-              >
+              <a href="/" data-toggle="tooltip" title="Home page">
                 Home
               </a>
               <br />
-              <a href="" data-toggle="tooltip" title="Contact us">
+              <a href="/contactus" data-toggle="tooltip" title="Contact us">
                 Contact
               </a>
               <br />
@@ -28,12 +24,12 @@ const Footer = () => {
           <div className="col-md-3 mb-md-0 mb-3">
             <ul className="list-unstyled">
               <li>
-                <a href="#" data-toggle="tooltip" title="About Lahore">
+                <a href="/" data-toggle="tooltip" title="About Lahore">
                   About
                 </a>
               </li>
               <li>
-                <a href="#" data-toggle="tooltip" title="Sightseeing spots">
+                <a href="/" data-toggle="tooltip" title="Sightseeing spots">
                   Sightseeing
                 </a>
               </li>

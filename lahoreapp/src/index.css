@@ -986,3 +986,37 @@ img.modal-content,
   }
 }
 /*---------------Modal end---------------*/
+
+.MuiPaginationItem-page,
+.Mui-selected {
+  color: var(--green-color) !important;
+  background-color: var(--purple-color) !important;
+}
+.MuiPaginationItem-outlined {
+  border: 1px solid var(--green-color) !important;
+}
+.MuiPagination-ul > li {
+  transition: 0.5s;
+}
+.MuiPagination-ul > li:hover {
+  padding-right: 10px;
+  transition: 0.5s;
+}
+select.btn,
+option {
+  align-items: center;
+  align-self: center;
+  text-align: right;
+  color: var(--white-color) !important;
+  background-color: var(--purple-color) !important;
+}
+select.btn:hover,
+option:hover {
+  color: var(--green-color) !important;
+  box-shadow: none;
+  background-color: var(--purple-color) !important;
+}
+
+div#select {
+  margin-top: 10px;
+}

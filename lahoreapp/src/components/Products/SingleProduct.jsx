@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import { Fab } from "@material-ui/core";
@@ -9,6 +9,8 @@ import { withRouter } from "react-router";
 import userService from "../../services/UserService";
 import CartProduct from "../ShoppingCart/CartProduct";
 import CartModal from "../ShoppingCart/CartModal";
+import { ProductContext } from "../Reducer/ProductContext";
+
 const useStyles = makeStyles(theme => ({
   fabstyle: {
     bottom: theme.spacing(1),
@@ -24,15 +26,24 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SingleProduct = props => {
-  const [value, setValue] = React.useState("");
+  // const { dispatch } = useContext(ProductContext);
+
   const { product, onDelete, history } = props;
   const classes = useStyles();
-  const addToCart = name => {
-    console.log(name);
-  };
-  React.useEffect(() => {
-    localStorage.setItem("productName", value);
-  }, [value]);
+
+  /* const handleOnCartClick = e => {
+    e.preventDefault();
+    dispatch({
+      type: "ADD_BOOK",
+      product: {
+        id: product._id,
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        imageurl: product.imageurl
+      }
+    });
+  };*/
   //const imgname = product.imageurl;
   return (
     <div className="col-md-3">
@@ -42,12 +53,15 @@ const SingleProduct = props => {
             type="button"
             className="btn"
             title="add to cart"
-            onClick={() => {
-              const prodName = product.name;
-              setValue(prodName);
-              console.log("in single prod" + value);
-              CartModal(props);
-            }}
+            /*onClick={() =>
+              handleOnCartClick(
+                product._id,
+                product.name,
+                product.description,
+                product.price,
+                product.imageurl
+              )
+            }*/
           >
             <i className="fa fa-shopping-cart"></i>
           </button>

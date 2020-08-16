@@ -5,6 +5,28 @@ import { withRouter } from "react-router-dom";
 import CartProduct from "./CartProduct";
 
 const CartModal = props => {
+  //const localData = localStorage.getItem("product");
+  const handlePlus = () => {
+    var qty = document.getElementById("qty").value;
+    qty = parseInt(qty);
+    qty = qty + 1;
+    document.getElementById("qty").value = qty;
+    var price = document.getElementById("price").value;
+    price = parseInt(price);
+    price = price + 500;
+    document.getElementById("price").value = price;
+  };
+  const handleMinus = () => {
+    var qty = document.getElementById("qty").value;
+    qty = parseInt(qty);
+    qty = qty - 1;
+    document.getElementById("qty").value = qty;
+    var price = document.getElementById("price").value;
+    price = parseInt(price);
+    price = price - 500;
+    document.getElementById("price").value = price;
+  };
+  // return localData ? JSON.parse(localData) : [];
   /*const [value, setValue] = React.useState(
     localStorage.getItem("myValueInLocalStorage") || ""
   );
@@ -67,7 +89,7 @@ const CartModal = props => {
                 30%
               </div>
             </div>
-            <CartProduct />
+
             <div className="content">
               <div className="item">
                 <div className="delete text-right">
@@ -79,23 +101,29 @@ const CartModal = props => {
                 </div>
 
                 <div className="description">
-                  <span>bbfd</span>
-                  <span>dfsdfsfdf</span>
+                  <span>Earrings</span>
+                  <span>White and Golden</span>
                 </div>
 
                 <div className="qty">
                   <div className="plus">
-                    <i className="fa fa-plus-circle"></i>
+                    <i className="fa fa-plus-circle" onClick={handlePlus}></i>
                   </div>
                   <div className="quantity">
-                    <input type="text" name="name" value="1" />
+                    <input id="qty" type="text" name="name" value="1" />
                   </div>
                   <div className="minus">
-                    <i className="fa fa-minus-circle"></i>
+                    <i className="fa fa-minus-circle" onClick={handleMinus}></i>
                   </div>
                 </div>
-
-                <div className="total-price">Rs. 500</div>
+                <div className="total-price">
+                  <input
+                    id="price"
+                    type="text"
+                    className="quantity"
+                    value="500"
+                  ></input>
+                </div>
               </div>
             </div>
             <div className="modal-footer">
